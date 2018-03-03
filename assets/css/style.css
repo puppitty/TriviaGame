@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("../images/background-1430105.svg");
+  background-size: cover;
+  /* Full height */
+  height: 100%;
+}
+
+.container {
+  background-color: #563d7c;
+}
+
+h6 {
+  line-height: 1.7;
+  margin: 3px;
+  padding: 3px;
+  color: white;
+}
