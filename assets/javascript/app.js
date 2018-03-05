@@ -53,8 +53,8 @@ $(document).ready(function () {
 
       // Display trivia question
       if (qNumber < triviaQs.length) {
-        $("#timer").html("<h5>Time remaining: " + "00:" + qTimer + "secs</h5>");
-        $(".question").append(triviaQs[qNumber].question);
+        $("#timer").html("<h4>Time remaining: " + "00:" + qTimer + "secs</h4>");
+        $(".question").html(triviaQs[qNumber].question);
 
         // Display possible answers as buttons using same format as #start button
 

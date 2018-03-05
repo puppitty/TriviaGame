@@ -17,6 +17,7 @@ html {
 
 .container {
   background-color: #9e4cbe;
+  height: 640px;
 }
 
 #start {
@@ -76,4 +77,11 @@ h6 {
   margin: 3px;
   padding: 3px;
   color: white;
+}
+.question {
+  line-height: 1.7;
+  margin: 3px;
+  padding: 3px;
+  color: white;
+  text-align: center;
 }
