@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   // define variables including timers
-  var qTimer = 0;
+  var qTimer = 30;
   var pauseTimer = 0;
   var qNumber = 0;
   var userPick = null;
@@ -10,6 +10,7 @@ $(document).ready(function () {
   var totalWrong = 0;
   var totalUnAns = 0;
   var gameRunning = false;
+  var qImage = null;
 
   // arrays for questions, answers, image and correct answer
   // website for trivia questions: http://www.partycurrent.com/chocolate-trivia.html
@@ -43,61 +44,27 @@ $(document).ready(function () {
     }
   ];
 
-  // reset screen function
-  // Is game running?
-  // If 1st time through, display Start button until clicked, then remove it.
-  $("#start-button").click(function () {
-    $(this).hide();
-    qTimer = setInterval(timer, 1000);
-    displayTrivia();
-  });
 
-  function timer() {
-    qTimer--;
-    if (qTimer <= 0) {
-      clearInterval(counter);
-      return;
+  $("#start").click(function () {
+    $("#start").hide();
+    askQuestion();
+
+    function askQuestion() {
+      if (qNumber < triviaQs.length) {
+        $("#timer").html("<h5>Time remaining: " + "00:" + qTimer + "secs</h5>");
+        $(".question").append(triviaQs[qNumber].question);
+
+        var choicesArr = triviaQs[qNumber].choices;
+        var buttonsArr = [];
+
+        for (i = 0; i < choicesArr.length; i++) {
+          var button = $("<button>");
+          button.text(choicesArr[i]);
+          button.attr("data-id", i);
+          $("#choices.div").append(button);
+        }
+
+      }
     }
-
-    $("#timer").html("Time remaining: " + qTimer + " secs");
-  }
-
-  function displayTrivia() {
-    $(".question_div").html(triviaQs[qNumber].question);
-    console.log(triviaQs[qNumber].question);
-    question++;
-
-    var choicesArr = triviaQs.question[qNumber].choices;
-    var buttonsArr = [];
-
-    for (let i = 0; i < choicesArr.length; i++) {
-      var button = $('<button>');
-      button.text(choicesArr[i]);
-      button.attr('data-id', i);
-      $('choices_div').append(button);
-    }
-  }
-  $('choices_div').on('click', 'button', function (e) {
-    userPick = $(this).data("id");
-    (questions[0].correct);
-    if (userPick != questions[0].correct) {
-      $('#choices_div').text("Wrong Answer! The corect answer is " + questions.question.correct[i]);
-      wrong++;
-
-    } else if (userPick === questions[0].validAnswer) {
-      $('choices_div').text("Correct!!! The correct answer is " + questions.question.correct[i])
-      correct++;
-    }
-  })
-
-  // function to call questions
-  // write to DOM
-  // timer
-  // Question
-  // Answer Choices as buttons (on hover highlight answer)
-  // on click, check to see if answer is right or wrong or no answer
-  // also watch timer for timeout of question and go to display answer
-  // display answer
-  // check if correct, if yes, display Correct message, if no, check to see if time out or incorrect answer and display appropriate answer
-  // display correct answer and image
-});
+  }, );
+})
