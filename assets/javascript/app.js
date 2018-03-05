@@ -59,26 +59,36 @@ $(document).ready(function () {
         // Display possible answers as buttons using same format as #start button
 
         var choicesArr = triviaQs[qNumber].choices;
-        var buttonsArr = [];
+        
+        
+        console.log(choicesArr);
+        console.log(qNumber);
+
 
         for (i = 0; i < choicesArr.length; i++) {
+
+          var buttonsArr = [];
+          var choice1 = choicesArr[i];
+console.log(choice1);
           var button = $("<button>");
           button.text(choicesArr[i]);
-          button.attr("data-id", i);
-          $("#choices.div").append(button);
+          console.log(button);
 
-          qNumber++;
+          button.attr("data-id", );
+          $("#choicediv").append(button);
+          console.log("#data-id");
+
 
           // Start timer
           // Add Else for end of game to show totals
         }
 
       }
-//Listen for click on answer or check to see if timer is 0. If timer 0 then go to display answer
+      //Listen for click on answer or check to see if timer is 0. If timer 0 then go to display answer
 
-// check answer to see if it is correct and display appropriate message, correct answer and image (Add timer), add to counter, when timer is 0, go to Next Question
+      // check answer to see if it is correct and display appropriate message, correct answer and image (Add timer), add to counter, when timer is 0, go to Next Question
 
-// end game function
+      // end game function
 
     }
   }, );
