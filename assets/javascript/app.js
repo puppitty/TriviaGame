@@ -2,6 +2,7 @@ $(document).ready(function () {
 
   // define variables including timers
   var qTimer = 30;
+  var triviaQA = "";
   var pauseTimer = 0;
   var qNumber = 0;
   var userPick = null;
@@ -43,40 +44,60 @@ $(document).ready(function () {
       correct: 1
     }
   ];
+  var startGame;
 
   // if Start is clicked, start the game, Hide the button and go Ask the questions
   $("#start").click(function () {
     $("#start").hide();
+    // $(".result").remove();
+    // $("div").html("");
+    // startGame = new $(window).startGame();
     askQuestion();
 
+    // function timer() {
+    //   qTimer--;
+    //   if (qTimer <= 0) {
+    //     setTimeout(function) {
+    //       nextQ();
+    //     });
+    //     else {
+    //       $("#timer").html("<h4>Time remaining: " + "00:" + qTimer + "secs</h4>");
+    //     }
+    //   }
+
+    // }
     function askQuestion() {
 
       // Display trivia question
       if (qNumber < triviaQs.length) {
         $("#timer").html("<h4>Time remaining: " + "00:" + qTimer + "secs</h4>");
         $(".question").html(triviaQs[qNumber].question);
+        // console.log(triviaQs[qNumber].question);
+  
+
 
         // Display possible answers as buttons using same format as #start button
 
         var choicesArr = triviaQs[qNumber].choices;
-        
-        
-        console.log(choicesArr);
-        console.log(qNumber);
+        var buttonsArr = [];
+
+        // console.log(choicesArr);
+        // console.log(qNumber);
 
 
-        for (i = 0; i < choicesArr.length; i++) {
+        for (var i = 0; i < choicesArr.length; i++) {
+          // var choice1 = choicesArr[i];
+      
+          var answers = $("<p>");
+          answers.text(choicesArr[i]);
+          // button.attr("data-id, i");
+          $(".choices-div").append(answers);
+          console.log(answers);
+        }
 
-          var buttonsArr = [];
-          var choice1 = choicesArr[i];
-console.log(choice1);
-          var button = $("<button>");
-          button.text(choicesArr[i]);
-          console.log(button);
-
-          button.attr("data-id", );
-          $("#choicediv").append(button);
-          console.log("#data-id");
+          // button.attr(".data-id", );
+          // $("#choicediv").append(button);
+          // console.log(".data-id");
 
 
           // Start timer
@@ -91,5 +112,5 @@ console.log(choice1);
       // end game function
 
     }
-  }, );
+, );
 })

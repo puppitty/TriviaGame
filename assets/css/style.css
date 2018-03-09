@@ -32,6 +32,18 @@ html {
   /* height: 100px; */
   /* font-style: bold; */
 }
+.choices-div {
+  background-color: tan;
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  margin: 4px 4px;
+  cursor: pointer;
+  padding: 5px;
+  width: 300px;
+  /* height: 100px; */
+  /* font-style: bold; */
+}
 
 #answer1 
 /* #answer2 
