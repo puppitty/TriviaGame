@@ -20,6 +20,11 @@ html {
   height: 640px;
 }
 
+.trivia-body {
+  text-align: center;
+
+}
+
 #start {
   background-color: tan;
   text-align: center;
@@ -32,15 +37,15 @@ html {
   /* height: 100px; */
   /* font-style: bold; */
 }
-.choices-div {
+button {
   background-color: tan;
   text-align: center;
   color: black;
   font-size: 24px;
   margin: 4px 4px;
   cursor: pointer;
-  padding: 5px;
-  width: 300px;
+  /* padding: 5px; */
+  width: 80%;
   /* height: 100px; */
   /* font-style: bold; */
 }

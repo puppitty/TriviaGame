@@ -13,6 +13,7 @@ $(document).ready(function () {
   var gameRunning = false;
   var qImage = null;
 
+
   // arrays for questions, answers, image and correct answer
   // website for trivia questions: http://www.partycurrent.com/chocolate-trivia.html
   triviaQs = [{
@@ -44,73 +45,85 @@ $(document).ready(function () {
       correct: 1
     }
   ];
-  var startGame;
+
+  var qCount = (triviaQs.length);
+  // var startGame;
 
   // if Start is clicked, start the game, Hide the button and go Ask the questions
   $("#start").click(function () {
-    $("#start").hide();
-    // $(".result").remove();
-    // $("div").html("");
-    // startGame = new $(window).startGame();
-    askQuestion();
+      $("#start").hide();
+      // $(".result").remove();
+      // $("div").html("");
+      // startGame = new $(window).startGame();
+      askQuestion();
+      timer();
 
-    // function timer() {
-    //   qTimer--;
-    //   if (qTimer <= 0) {
-    //     setTimeout(function) {
-    //       nextQ();
-    //     });
-    //     else {
-    //       $("#timer").html("<h4>Time remaining: " + "00:" + qTimer + "secs</h4>");
-    //     }
-    //   }
-
-    // }
-    function askQuestion() {
-
-      // Display trivia question
-      if (qNumber < triviaQs.length) {
-        $("#timer").html("<h4>Time remaining: " + "00:" + qTimer + "secs</h4>");
-        $(".question").html(triviaQs[qNumber].question);
-        // console.log(triviaQs[qNumber].question);
-  
-
-
-        // Display possible answers as buttons using same format as #start button
-
-        var choicesArr = triviaQs[qNumber].choices;
-        var buttonsArr = [];
-
-        // console.log(choicesArr);
-        // console.log(qNumber);
-
-
-        for (var i = 0; i < choicesArr.length; i++) {
-          // var choice1 = choicesArr[i];
-      
-          var answers = $("<p>");
-          answers.text(choicesArr[i]);
-          // button.attr("data-id, i");
-          $(".choices-div").append(answers);
-          console.log(answers);
+      function timer() {
+        qTimer--;
+        if (qTimer <= 0) {
+          setTimeout(function () {
+            nextQ();
+          });
+        } else {
+          $("#timer").html("<h4>Time remaining: " + "00:" + qTimer + "secs</h4>");
         }
+      };
 
-          // button.attr(".data-id", );
-          // $("#choicediv").append(button);
-          // console.log(".data-id");
+      function askQuestion() {
 
+        // Display trivia question
+        if (qNumber < triviaQs.length) {
+          $("#timer").html("<h4>Time remaining: " + "00:" + qTimer + "secs</h4>");
+          $(".question").html(triviaQs[qNumber].question);
+          // console.log(triviaQs[qNumber].question);
 
-          // Start timer
-          // Add Else for end of game to show totals
+          // Display possible answers as buttons using same format as #start button
+
+          var choicesArr = triviaQs[qNumber].choices;
+          var buttonsArr = [];
+
+          // console.log(choicesArr);
+          // console.log(qNumber);
+
+          for (var i = 0; i < choicesArr.length; i++) {
+            // var choice1 = choicesArr[i];
+            var button = $("<button>");
+            button.text(choicesArr[i]);
+            button.attr(".choices-div, i");
+            $(".choices-div").append(button);
+            console.log(button);
+          }
         }
+        $(document.body).on("click", button, function() {
 
+          // Get the number of the button from its data attribute and hold in a variable called  toDoNumber.
+          console.log(button);
+          var userPick = $(this).attr("choices_div");
+    
+          // Select and Remove the specific <p> element that previously held the to do item number.
+          // $("#item-" + toDoNumber).remove();
+        });
       }
-      //Listen for click on answer or check to see if timer is 0. If timer 0 then go to display answer
 
-      // check answer to see if it is correct and display appropriate message, correct answer and image (Add timer), add to counter, when timer is 0, go to Next Question
+      function nextQ() {
+        qNumber++
+        clearInterval();
+      }
+      // button.attr(".data-id", );
+      // $("#choicediv").append(button);
+      // console.log(".data-id");
 
-      // end game function
-
+      // window.triviaCounter = setInterval(qTimer, 1000);
+      // Start timer
+      // Add Else for end of game to show totals
     }
-, );
+
+
+    //Listen for click on answer or check to see if timer is 0. If timer 0 then go to display answer
+
+    // check answer to see if it is correct and display appropriate message, correct answer and image (Add timer), add to counter, when timer is 0, go to Next Question
+
+    // end game function
+
+  );
 })
