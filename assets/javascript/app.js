@@ -94,12 +94,12 @@ $(document).ready(function () {
             console.log(button);
           }
         }
-        $(document.body).on("click", button, function() {
+        $(document.body).on("click", button, function () {
 
           // Get the number of the button from its data attribute and hold in a variable called  toDoNumber.
           console.log(button);
           var userPick = $(this).attr("choices_div");
-    
+
           // Select and Remove the specific <p> element that previously held the to do item number.
           // $("#item-" + toDoNumber).remove();
         });
