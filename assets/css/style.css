@@ -9,7 +9,7 @@ html {
 
 .bg {
   /* The image used */
-  background-image: url("../images/background-1430105.svg");
+  background-image: url("../images/chocolate-1934_1920.jpg");
   background-size: cover;
   /* Full height */
   height: 100%;
@@ -18,16 +18,21 @@ html {
 
 .container {
   background-color: #4e98dd;
-  opacity: 0.7;
+  opacity: 0.9;
   height: 640px;
 }
+
+/* .text-container {
+  opacity: 1;
+} */
 
 .trivia-body {
   text-align: center;
 }
 
 #start {
-  background-color: rgb(233, 93, 13);
+  background-color: chocolate;
+  /* background-color: rgb(233, 93, 13); */
   text-align: center;
   color: white;
   font-size: 24px;
@@ -40,7 +45,7 @@ html {
 }
 
 button {
-  background-color: rgb(233, 93, 13);
+  background-color: chocolate;
   text-align: center;
   color: white;
   font-size: 24px;
